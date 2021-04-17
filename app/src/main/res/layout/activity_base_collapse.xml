@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.base.BaseCollapseActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/baseAppBarCollapse"
+        style="@style/AppBarLayout"
+        android:background="@android:color/white">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/base_collapseToolbar"
+            style="@style/CollapsingToolBar"
+            app:toolbarId="@id/baseToolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!--                <RelativeLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginStart="@dimen/dimen_24"-->
+                <!--                    android:layout_marginTop="@dimen/dimen_72"-->
+                <!--                    android:layout_marginEnd="@dimen/dimen_24"-->
+                <!--                    android:background="@drawable/shape_card_elevation"-->
+                <!--                    app:layout_collapseMode="parallax"-->
+                <!--                    app:layout_scrollFlags="scroll|exitUntilCollapsed">-->
+
+                <!--                    <androidx.viewpager2.widget.ViewPager2-->
+                <!--                        android:id="@+id/media_viewpager"-->
+                <!--                        style="@style/ViewPager"-->
+                <!--                        android:layout_height="180dp" />-->
+
+                <!--                    <com.google.android.material.textview.MaterialTextView-->
+                <!--                        android:id="@+id/txt_adsType"-->
+                <!--                        style="@style/TextView.Header"-->
+                <!--                        android:layout_marginTop="4dp"-->
+                <!--                        android:background="@drawable/shape_type_profile_background"-->
+                <!--                        android:paddingStart="@dimen/dimen_8"-->
+                <!--                        android:paddingEnd="@dimen/dimen_16"-->
+                <!--                        android:paddingBottom="4dp"-->
+                <!--                        android:textAlignment="center"-->
+                <!--                        android:textColor="@android:color/white"-->
+                <!--                        android:textSize="12sp"-->
+                <!--                        android:visibility="gone"-->
+                <!--                        tools:text="@tools:sample/first_names" />-->
+
+                <!--                    <androidx.appcompat.widget.AppCompatImageButton-->
+                <!--                        android:id="@+id/btn_favorite"-->
+                <!--                        style="@style/ImageButton"-->
+                <!--                        android:layout_alignParentEnd="true"-->
+                <!--                        android:src="@drawable/ic_favorite_filled"-->
+                <!--                        android:visibility="gone" />-->
+
+                <!--                </RelativeLayout>-->
+                <!---->
+                <!--                <com.google.android.material.tabs.TabLayout-->
+                <!--                    android:id="@+id/media_TabLayout"-->
+                <!--                    style="@style/TabLayout.Dots"-->
+                <!--                    android:layout_gravity="bottom|center_horizontal"-->
+                <!--                    android:layout_margin="16dp"-->
+                <!--                    android:elevation="0dp"-->
+                <!--                    app:tabBackground="@drawable/selector_tab_layout_dot_colored" />-->
+                <!---->
+                <!--                <com.google.android.material.textview.MaterialTextView-->
+                <!--                    android:id="@+id/txt_name"-->
+                <!--                    style="@style/TextView.Header.Bold.ExtraSize"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:padding="8dp"-->
+                <!--                    android:visibility="gone"-->
+                <!--                    tools:text="@tools:sample/full_names" />-->
+
+            </LinearLayout>
+
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/baseToolbar"
+                style="@style/Toolbar"
+                android:background="@null"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@drawable/ic_arrow_back"
+                app:navigationIconTint="@color/colorTextDefault" />
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/base_collapseContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

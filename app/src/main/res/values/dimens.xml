@@ -3,7 +3,7 @@
     <dimen name="appButtonHeight">56dp</dimen>
     <dimen name="appToolbarHeight">72dp</dimen>
     <dimen name="appButtonMargins">16dp</dimen>
-    <dimen name="appComponentRadius">12dp</dimen>
+    <dimen name="appComponentRadius">16dp</dimen>
 
     <dimen name="dimen_0">0dp</dimen>
     <dimen name="dimen_2">2dp</dimen>

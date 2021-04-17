@@ -2,11 +2,7 @@ package majed.eddin.marvelcharacters.data.application
 
 import android.app.Application
 import android.content.Context
-import io.github.inflationx.calligraphy3.CalligraphyConfig
-import io.github.inflationx.calligraphy3.CalligraphyInterceptor
-import io.github.inflationx.viewpump.ViewPump
 import majed.eddin.marvelcharacters.BuildConfig
-import majed.eddin.marvelcharacters.R
 import majed.eddin.marvelcharacters.data.consts.AppConst
 import majed.eddin.marvelcharacters.data.local.LocaleHelper
 import java.util.*
@@ -24,17 +20,6 @@ class BaseApp : Application() {
         instance = this
         appConst = AppConst.instance
         initAppConst()
-        ViewPump.init(
-            ViewPump.builder()
-                .addInterceptor(
-                    CalligraphyInterceptor(
-                        CalligraphyConfig.Builder()
-                            .setDefaultFontPath(appConst.getDefaultFontPath())
-                            .setFontAttrId(R.attr.fontPath)
-                            .build()
-                    )
-                ).build()
-        )
     }
 
 

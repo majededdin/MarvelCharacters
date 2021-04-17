@@ -1,3 +1,38 @@
 <resources>
     <string name="app_name">MarvelCharacters</string>
+
+    <string name="base_url" translatable="false">gateway.marvel.com</string>
+
+    <!--  For Internet  -->
+    <string name="connection_is_lost">No connection</string>
+    <string name="waiting_for_connection">Waiting for connection</string>
+    <string name="connection_is_back">Back to connection</string>
+    <string name="request_timeout_please_check_your_connection">Request timeout, Please check your connection.</string>
+    <string name="sorry_something_went_wrong_and_being_reported_now">Sorry, Something went Wrong and being reported now.</string>
+
+    <!--  For AppStructure & Validation  -->
+    <string name="login">Sign in</string>
+    <string name="retry">Retry</string>
+    <string name="share">Share</string>
+    <string name="share_using">Share by</string>
+    <string name="whatsapp_not_installed">Please install Whatsapp app on your phone</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="required">Required</string>
+    <string name="phone_not_valid">Phone Not Valid</string>
+    <string name="email_not_valid">Email Not Valid</string>
+    <string name="password_six_chars">At least six characters</string>
+    <string name="should_three_chars">At least three characters</string>
+    <string name="should_five_chars">At least five characters</string>
+    <string name="should_one_chars">At least one characters</string>
+    <string name="should_two_chars">At least two characters</string>
+    <string name="should_ten_chars">At least ten characters</string>
+    <string name="must_more_than_15">Must be More Than 15 Characters</string>
+    <string name="repeat_password_not_matches">Repeat password does not equal to the new password</string>
+    <string name="postal_code_not_valid">Postal code is not valid</string>
+    <string name="lat_is_not_valid">Latitude is not valid</string>
+    <string name="lng_is_not_valid">Longitude is not valid</string>
+    <string name="upload_photo">Upload Photo</string>
+    <string name="upload_file">Upload file</string>
+    <string name="permission_denied">Permission Denied</string>
+
 </resources>

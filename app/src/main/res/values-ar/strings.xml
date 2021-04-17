@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">شخصيات مارفل</string>
+
+    <!--  For Internet  -->
+    <string name="connection_is_lost">لايوجد اتصال بالإنترنت</string>
+    <string name="waiting_for_connection">انتظار الإتصال بالإنترنت</string>
+    <string name="connection_is_back">عودة الإتصال بالانترنت</string>
+    <string name="request_timeout_please_check_your_connection">إنتهاء مدة الإنتظار، من فضلك قم بفحص اتصالك بالانترنت.</string>
+    <string name="sorry_something_went_wrong_and_being_reported_now">عذرًا ، حدث خطأ ما وتم الإبلاغ عنه الآن.</string>
+
+    <!--  For AppStructure & Validation  -->
+    <string name="login">تسجیل الدخول</string>
+    <string name="retry">إعادة المحاولة</string>
+    <string name="share">مشاركة</string>
+    <string name="share_using">مشاركة بواسطة</string>
+    <string name="whatsapp_not_installed">برجاء تثبیت تطبیق واتس اب على جهازك</string>
+    <string name="dismiss">إغلاق</string>
+    <string name="required">مطلوب</string>
+    <string name="phone_not_valid">رقم الهاتف غير صحيح</string>
+    <string name="email_not_valid">البريد الإلكتروني غير صحيح</string>
+    <string name="password_six_chars">على الأقل ٦ أحرف</string>
+    <string name="should_three_chars">على الأقل ٣ أحرف</string>
+    <string name="should_five_chars">على الأقل ٥ أحرف</string>
+    <string name="should_one_chars">حرف على الأقل</string>
+    <string name="should_two_chars">حرفين على الأقل</string>
+    <string name="should_ten_chars">على الأقل ١٠ حروف</string>
+    <string name="must_more_than_15">یجب أن یحتوي على ١٥ حرفاً على الأقل</string>
+    <string name="repeat_password_not_matches"> كلمة المرور المكررة لا تماثل كلمة المرور الجدیدة</string>
+    <string name="postal_code_not_valid">الكود البريدي غير صحيح</string>
+    <string name="lat_is_not_valid">خط العرض غير صحيح</string>
+    <string name="lng_is_not_valid">خط الطول غير صحيح</string>
+    <string name="upload_photo">تحميل صورة</string>
+    <string name="upload_file">تحميل ملف</string>
+    <string name="permission_denied">تم رفض الإذن</string>
+
+</resources>

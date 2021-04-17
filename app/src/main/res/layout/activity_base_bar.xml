@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BaseLayout"
+    tools:context=".ui.base.BaseBarActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/baseAppBar"
+        style="@style/AppBarLayout">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/baseToolbar"
+            style="@style/Toolbar"
+            app:navigationIconTint="@color/colorTextDefault"
+            app:layout_scrollFlags="snap"
+            app:title="">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_search"
+                style="@style/ImageButton"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginStart="@dimen/dimen_8"
+                android:layout_marginEnd="@dimen/dimen_16"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_search"
+                android:tint="@android:color/holo_red_dark" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                style="@style/ImageView"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_logo" />
+
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/baseBarFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <FrameLayout
+        android:id="@+id/container_search"
+        style="@style/BaseLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

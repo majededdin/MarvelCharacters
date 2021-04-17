@@ -10,12 +10,6 @@ data class ErrorHandler(var key: String?) {
         this.isDataValid = false
     }
 
-    constructor(isDataValid: Boolean) : this(null) {
-        this.value = null
-        this.isDataValid = isDataValid
-    }
-
-
     override fun toString(): String {
         return "ErrorHandler(key=$key, value=$value, isDataValid=$isDataValid)"
     }
