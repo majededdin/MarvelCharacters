@@ -34,5 +34,8 @@
     <string name="upload_photo">Upload Photo</string>
     <string name="upload_file">Upload file</string>
     <string name="permission_denied">Permission Denied</string>
+    <string name="search_for_character">Search for character</string>
+    <string name="cancel">Cancel</string>
+    <string name="no_results">There is no Results</string>
 
 </resources>

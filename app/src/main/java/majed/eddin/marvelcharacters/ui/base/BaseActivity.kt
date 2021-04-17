@@ -37,7 +37,9 @@ import majed.eddin.marvelcharacters.data.remote.ApiResponse
 import majed.eddin.marvelcharacters.data.remote.ApiStatus
 import majed.eddin.marvelcharacters.ui.viewModel.BaseViewModel
 import majed.eddin.marvelcharacters.utils.BaseSnackBar
+import majed.eddin.marvelcharacters.utils.Utils
 import majed.eddin.marvelcharacters.utils.Utils.Companion.errorResponseHandler
+import majed.eddin.marvelcharacters.utils.extentionUtils.hideKeyboard
 import majed.eddin.marvelcharacters.utils.extentionUtils.toGone
 import majed.eddin.marvelcharacters.utils.extentionUtils.toVisible
 import org.json.JSONException
@@ -99,6 +101,7 @@ abstract class BaseActivity<V : BaseViewModel> : AppCompatActivity() {
     override fun onBackPressed() {
         if (supportFragmentManager.backStackEntryCount == 0) {
             super.onBackPressed()
+            findViewById<View>(android.R.id.content).hideKeyboard()
             finish()
         } else
             supportFragmentManager.popBackStack()

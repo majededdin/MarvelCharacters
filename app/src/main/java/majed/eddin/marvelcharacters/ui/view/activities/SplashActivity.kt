@@ -9,7 +9,6 @@ import kotlinx.coroutines.launch
 import majed.eddin.marvelcharacters.data.model.modified.ErrorHandler
 import majed.eddin.marvelcharacters.databinding.ActivitySplashBinding
 import majed.eddin.marvelcharacters.ui.base.BaseActivity
-import majed.eddin.marvelcharacters.ui.viewModel.BaseViewModel
 import majed.eddin.marvelcharacters.ui.viewModel.CharacterDetailsVM
 import majed.eddin.marvelcharacters.utils.extentionUtils.intentWithSlideInOutFinishAll
 import majed.eddin.marvelcharacters.utils.extentionUtils.transparentStatusBar
@@ -50,7 +49,7 @@ class SplashActivity : BaseActivity<CharacterDetailsVM>() {
     override fun updateView() {
         job = CoroutineScope(IO).launch {
             delay(2000)
-//            intentWithSlideInOutFinishAll(CharactersIndexActivity::class.java)
+            intentWithSlideInOutFinishAll(CharactersIndexActivity::class.java)
         }
 
     }

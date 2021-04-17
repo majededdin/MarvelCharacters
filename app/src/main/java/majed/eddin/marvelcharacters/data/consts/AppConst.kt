@@ -18,8 +18,4 @@ class AppConst {
         var instance = AppConst()
     }
 
-    fun getDefaultFontPath(): String {
-        return if (deviceCurrentLanguage == "ar") appArFont else appEnFont
-    }
-
 }

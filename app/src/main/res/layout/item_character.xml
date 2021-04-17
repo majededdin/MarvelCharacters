@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/CardView.Base"
+    android:padding="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_152">
+
+        <majed.eddin.marvelcharacters.utils.imageUtils.ParallaxImageView
+            android:id="@+id/img_character"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <majed.eddin.marvelcharacters.utils.blurView.BlurLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_characterName"
+                style="@style/TextView.Title"
+                tools:text="@tools:sample/first_names" />
+
+        </majed.eddin.marvelcharacters.utils.blurView.BlurLayout>
+
+    </RelativeLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

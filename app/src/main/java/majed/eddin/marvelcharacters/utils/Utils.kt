@@ -1,10 +1,18 @@
 package majed.eddin.marvelcharacters.utils
 
+import android.content.Context
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
 import android.util.Log
+import androidx.core.content.ContextCompat
+import majed.eddin.marvelcharacters.R
 import majed.eddin.marvelcharacters.data.consts.AppConst
 import org.json.JSONArray
 import org.json.JSONException
 import java.security.NoSuchAlgorithmException
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 
 class Utils {
@@ -50,6 +58,25 @@ class Utils {
             }
 
             return ""
+        }
+
+        fun highlight(context: Context, search: String, originalText: String): CharSequence {
+            var spannableStringSearch: SpannableString? = null
+
+            spannableStringSearch = SpannableString(originalText)
+            val pattern: Pattern = Pattern.compile(search, Pattern.CASE_INSENSITIVE)
+            val matcher: Matcher = pattern.matcher(originalText)
+            while (matcher.find()) {
+                spannableStringSearch.setSpan(
+                    ForegroundColorSpan(
+                        ContextCompat.getColor(context, R.color.colorPrimary)
+                    ),
+                    matcher.start(), matcher.end(),
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+            }
+
+            return spannableStringSearch
         }
 
     }

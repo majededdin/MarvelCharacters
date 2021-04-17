@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#17A99F</color>
+    <color name="colorPrimary">#fd888d</color>
     <color name="colorPrimaryVariant">#ffffff</color>
-    <color name="colorSecondary">#009cb7</color>
+    <color name="colorSecondary">#fd888d</color>
 
-    <color name="colorTextHeader">#030700</color>
+    <color name="colorBack">#151515</color>
+    <color name="colorBackToolBar">#1b1b1b</color>
+    <color name="colorBackCard">#2d2d2d</color>
+
+    <color name="colorTextHeader">#ffffff</color>
     <color name="colorTextDefault">#a5a5a5</color>
     <color name="colorTextParagraph">#7b7b7b</color>
 
-    <color name="color_inputField">#f6f6f6</color>
+    <color name="color_inputField">#2d2d2d</color>
 
     <color name="colorLightGray">#80C1C1C1</color>
 

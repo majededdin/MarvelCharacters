@@ -33,5 +33,8 @@
     <string name="upload_photo">تحميل صورة</string>
     <string name="upload_file">تحميل ملف</string>
     <string name="permission_denied">تم رفض الإذن</string>
+    <string name="search_for_character">إبحث عن شخصية</string>
+    <string name="cancel">إلغاء</string>
+    <string name="no_results">لا يوجد نتائج</string>
 
 </resources>

@@ -4,11 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <majed.eddin.marvelcharacters.utils.recyclerUtils.ParallaxRecyclerView
-        android:id="@+id/recycler_globalList"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="8dp" />
+        android:orientation="vertical">
+
+        <majed.eddin.marvelcharacters.utils.recyclerUtils.ParallaxRecyclerView
+            android:id="@+id/recycler_globalList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="@dimen/dimen_32"
+            android:layout_height="@dimen/dimen_32"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/dimen_8"
+            android:layout_marginBottom="@dimen/dimen_24" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/layout_emptyState"

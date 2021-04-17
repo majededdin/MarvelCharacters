@@ -10,13 +10,6 @@ fun View.hideKeyboard() = kotlin.run {
         ?.hideSoftInputFromWindow(this.windowToken, 0)
 }
 
-
-fun View.showKeyboard() = kotlin.run {
-    (this.context.getSystemService(Service.INPUT_METHOD_SERVICE) as? InputMethodManager)
-        ?.showSoftInput(this, 0)
-}
-
-
 fun View.toVisible() = kotlin.run { this.visibility = View.VISIBLE }
 
 
