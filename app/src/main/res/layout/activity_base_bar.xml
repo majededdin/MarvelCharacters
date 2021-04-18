@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/BaseLayout"
-    android:background="@color/colorBack"
     tools:context=".ui.base.BaseBarActivity">
 
     <com.google.android.material.appbar.AppBarLayout

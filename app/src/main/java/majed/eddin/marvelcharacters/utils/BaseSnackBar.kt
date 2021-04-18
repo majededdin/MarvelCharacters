@@ -41,18 +41,6 @@ class BaseSnackBar(
     }
 
 
-    fun setDismiss(listener: View.OnClickListener): BaseSnackBar {
-        val button: MaterialTextView = getView().findViewById(R.id.txt_dismiss)
-        button.text = context.getString(R.string.dismiss)
-        button.visibility = View.VISIBLE
-        button.setOnClickListener { v: View? ->
-            listener.onClick(v)
-            dismiss()
-        }
-        return this
-    }
-
-
     fun setDismiss(): BaseSnackBar {
         val button: MaterialTextView = getView().findViewById(R.id.txt_dismiss)
         button.text = context.getString(R.string.dismiss)

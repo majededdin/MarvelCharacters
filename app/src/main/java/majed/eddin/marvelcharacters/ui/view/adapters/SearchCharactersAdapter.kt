@@ -1,25 +1,27 @@
 package majed.eddin.marvelcharacters.ui.view.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import majed.eddin.marvelcharacters.R
 import majed.eddin.marvelcharacters.data.model.service.MarvelCharacter
-import majed.eddin.marvelcharacters.databinding.ItemCharacterBinding
-import majed.eddin.marvelcharacters.ui.base.ParallaxViewHolder
+import majed.eddin.marvelcharacters.databinding.ItemSearchCharacterBinding
+import majed.eddin.marvelcharacters.utils.Utils.Companion.highlight
 
-class CharactersAdapter(
+class SearchCharactersAdapter(
+    private val context: Context,
     private val callback: CharactersCallBack
-) : RecyclerView.Adapter<CharactersAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<SearchCharactersAdapter.ViewHolder>() {
 
+    private var searchString: String? = null
     private var items: ArrayList<MarvelCharacter> = ArrayList()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
-            ItemCharacterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemSearchCharacterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -30,13 +32,17 @@ class CharactersAdapter(
                 Picasso.get().load(getFullImagePath())
                     .into(binding.imgCharacter)
 
-                binding.txtCharacterName.text = name
+                if (searchString != null)
+                    binding.txtCharacterName.text = highlight(context, searchString!!, name)
+                else
+                    binding.txtCharacterName.text = name
             }
         }
     }
 
 
-    fun addAll(items: List<MarvelCharacter>) {
+    fun addAll(searchString: String?, items: List<MarvelCharacter>) {
+        this.searchString = searchString
         for (result in items) {
             add(result)
         }
@@ -58,8 +64,8 @@ class CharactersAdapter(
     override fun getItemCount(): Int = items.size
 
 
-    inner class ViewHolder(val binding: ItemCharacterBinding) :
-        ParallaxViewHolder(binding.root), View.OnClickListener {
+    inner class ViewHolder(val binding: ItemSearchCharacterBinding) :
+        RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
         init {
             binding.root.setOnClickListener(this)
@@ -70,12 +76,7 @@ class CharactersAdapter(
             val marvelCharacter = items[bindingAdapterPosition]
             callback.onDefaultClicked(marvelCharacter)
         }
-
-        override fun getParallaxImageId(): Int {
-            return R.id.img_character
-        }
     }
-
 
     interface CharactersCallBack {
         fun onDefaultClicked(marvelCharacter: MarvelCharacter)

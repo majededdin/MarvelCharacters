@@ -8,18 +8,19 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import majed.eddin.marvelcharacters.data.model.service.Data
+import majed.eddin.marvelcharacters.data.model.service.CharactersData
 import majed.eddin.marvelcharacters.data.remote.ApiResponse
 import majed.eddin.marvelcharacters.data.repository.CharactersIndexRepo
 
 class CharactersIndexVM(application: Application) : BaseViewModel(application) {
 
-    private val repo: CharactersIndexRepo = CharactersIndexRepo(application)
+    private val repo: CharactersIndexRepo = CharactersIndexRepo()
     private var searchJob: Job? = null
 
-    private val charactersIndexResponse = MutableLiveData<ApiResponse<Data>>()
+    private val charactersIndexResponse = MutableLiveData<ApiResponse<CharactersData>>()
 
-    val charactersIndexResult: LiveData<ApiResponse<Data>>
+
+    val charactersIndexResult: LiveData<ApiResponse<CharactersData>>
         get() = charactersIndexResponse
 
 

@@ -5,7 +5,6 @@ import androidx.appcompat.widget.AppCompatImageButton
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import majed.eddin.marvelcharacters.R
-import majed.eddin.marvelcharacters.data.model.modified.ErrorHandler
 import majed.eddin.marvelcharacters.databinding.ActivityBaseBarBinding
 import majed.eddin.marvelcharacters.ui.viewModel.BaseViewModel
 import majed.eddin.marvelcharacters.utils.extentionUtils.loadWithSlideUpDown
@@ -25,6 +24,7 @@ abstract class BaseBarActivity<V : BaseViewModel> : BaseActivity<V>() {
 
     fun getBaseFrame(): SwipeRefreshLayout = binding.baseBarFrame
 
+
     fun getSearchButton(): AppCompatImageButton = binding.btnSearch
 
 
@@ -33,10 +33,6 @@ abstract class BaseBarActivity<V : BaseViewModel> : BaseActivity<V>() {
     }
 
     fun getBindingView(): ActivityBaseBarBinding = binding
-
-
-    override fun setErrorHandler(handler: ErrorHandler) {
-    }
 
 
     private fun baseInit() {

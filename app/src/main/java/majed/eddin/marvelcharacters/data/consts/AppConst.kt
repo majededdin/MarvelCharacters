@@ -6,8 +6,6 @@ class AppConst {
 
     var isDebug = false
     lateinit var appInstance: Application
-    lateinit var appArFont: String
-    lateinit var appEnFont: String
     lateinit var deviceCurrentLanguage: String
     lateinit var appBaseUrl: String
     lateinit var appWebSiteUrl: String

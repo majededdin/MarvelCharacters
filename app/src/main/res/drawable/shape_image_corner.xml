@@ -2,8 +2,8 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
 
-    <corners android:radius="@dimen/appComponentRadius" />
-
-    <solid android:color="@color/colorBackCard" />
+    <corners
+        android:bottomLeftRadius="@dimen/appComponentRadius"
+        android:bottomRightRadius="@dimen/appComponentRadius" />
 
 </shape>

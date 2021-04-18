@@ -6,7 +6,6 @@ import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import majed.eddin.marvelcharacters.data.model.modified.ErrorHandler
 import majed.eddin.marvelcharacters.databinding.ActivitySplashBinding
 import majed.eddin.marvelcharacters.ui.base.BaseActivity
 import majed.eddin.marvelcharacters.ui.viewModel.CharacterDetailsVM
@@ -23,6 +22,7 @@ class SplashActivity : BaseActivity<CharacterDetailsVM>() {
         super.onStop()
         job.cancel()
     }
+
 
     override fun onResume() {
         super.onResume()
@@ -56,10 +56,6 @@ class SplashActivity : BaseActivity<CharacterDetailsVM>() {
 
 
     override fun viewInit() {
-    }
-
-
-    override fun setErrorHandler(handler: ErrorHandler) {
     }
 
 }

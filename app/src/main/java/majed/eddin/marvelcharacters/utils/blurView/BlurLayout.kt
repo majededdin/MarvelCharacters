@@ -18,9 +18,9 @@ class BlurLayout : FrameLayout {
 
 
     companion object {
-        val DEFAULT_DOWNSCALE_FACTOR: Float = 0.12f
-        val DEFAULT_BLUR_RADIUS: Int = 12
-        val DEFAULT_FPS: Int = 60
+        const val DEFAULT_DOWNSCALE_FACTOR: Float = 0.12f
+        const val DEFAULT_BLUR_RADIUS: Int = 12
+        const val DEFAULT_FPS: Int = 60
     }
 
     // Customizable attributes

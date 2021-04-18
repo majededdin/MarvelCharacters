@@ -2,7 +2,6 @@ package majed.eddin.marvelcharacters.ui.base
 
 import am.networkconnectivity.NetworkConnectivity
 import android.annotation.SuppressLint
-import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -20,7 +19,6 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import majed.eddin.marvelcharacters.ui.view.fragments.LoadingFragment
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textview.MaterialTextView
@@ -32,18 +30,14 @@ import majed.eddin.marvelcharacters.R
 import majed.eddin.marvelcharacters.data.consts.AppConst
 import majed.eddin.marvelcharacters.data.local.LocaleHelper
 import majed.eddin.marvelcharacters.data.local.Prefs
-import majed.eddin.marvelcharacters.data.model.modified.ErrorHandler
 import majed.eddin.marvelcharacters.data.remote.ApiResponse
 import majed.eddin.marvelcharacters.data.remote.ApiStatus
+import majed.eddin.marvelcharacters.ui.view.fragments.LoadingFragment
 import majed.eddin.marvelcharacters.ui.viewModel.BaseViewModel
 import majed.eddin.marvelcharacters.utils.BaseSnackBar
-import majed.eddin.marvelcharacters.utils.Utils
-import majed.eddin.marvelcharacters.utils.Utils.Companion.errorResponseHandler
 import majed.eddin.marvelcharacters.utils.extentionUtils.hideKeyboard
 import majed.eddin.marvelcharacters.utils.extentionUtils.toGone
 import majed.eddin.marvelcharacters.utils.extentionUtils.toVisible
-import org.json.JSONException
-import org.json.JSONObject
 
 abstract class BaseActivity<V : BaseViewModel> : AppCompatActivity() {
 
@@ -90,9 +84,6 @@ abstract class BaseActivity<V : BaseViewModel> : AppCompatActivity() {
 
 
     abstract fun updateView()
-
-
-    protected abstract fun setErrorHandler(handler: ErrorHandler)
 
 
     protected abstract fun viewInit()
@@ -228,25 +219,6 @@ abstract class BaseActivity<V : BaseViewModel> : AppCompatActivity() {
     }
 
 
-    open fun getResponseErrors(jsonObject: JSONObject) {
-        val iterator = jsonObject.keys()
-        while (iterator.hasNext()) {
-            val key = iterator.next()
-            var errorValue: String? = null
-            try {
-                errorValue = errorResponseHandler(jsonObject.getJSONArray(key))
-            } catch (e: JSONException) {
-                e.printStackTrace()
-            }
-            setErrorHandler(ErrorHandler(key, errorValue!!))
-            for (fragment in supportFragmentManager.fragments) {
-                if (fragment is BaseFragment<*>)
-                    fragment.setErrorHandler(ErrorHandler(key, errorValue))
-            }
-        }
-    }
-
-
     fun handleApiResponse(apiResponse: ApiResponse<*>, failureListener: View.OnClickListener) {
         when (apiResponse.apiStatus) {
 
@@ -257,10 +229,7 @@ abstract class BaseActivity<V : BaseViewModel> : AppCompatActivity() {
 
             ApiStatus.OnError -> {
                 showLoadingFragment(false)
-                if (apiResponse.errorBodyAsJSON != null)
-                    getResponseErrors(apiResponse.errorBodyAsJSON!!)
-                else
-                    showMessage(apiResponse.message)
+                showMessage(apiResponse.message)
             }
 
             ApiStatus.OnFailure -> {

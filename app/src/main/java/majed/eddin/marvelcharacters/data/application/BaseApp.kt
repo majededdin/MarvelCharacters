@@ -27,7 +27,7 @@ class BaseApp : Application() {
         when (Locale.getDefault().language) {
             "ar" -> super.attachBaseContext(LocaleHelper.onAttach(base!!, "ar"))
 
-            "en" -> super.attachBaseContext(LocaleHelper.onAttach(base!!, "ar"))
+            "en" -> super.attachBaseContext(LocaleHelper.onAttach(base!!, "en"))
 
             else -> super.attachBaseContext(LocaleHelper.onAttach(base!!, "en"))
         }

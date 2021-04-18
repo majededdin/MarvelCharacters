@@ -4,7 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import majed.eddin.marvelcharacters.R
-import majed.eddin.marvelcharacters.data.model.service.Data
+import majed.eddin.marvelcharacters.data.consts.Params.Companion.CHARACTER
+import majed.eddin.marvelcharacters.data.model.service.CharactersData
 import majed.eddin.marvelcharacters.data.model.service.MarvelCharacter
 import majed.eddin.marvelcharacters.data.remote.ApiResponse
 import majed.eddin.marvelcharacters.data.remote.ApiStatus
@@ -13,6 +14,7 @@ import majed.eddin.marvelcharacters.ui.base.BaseBarActivity
 import majed.eddin.marvelcharacters.ui.view.adapters.CharactersAdapter
 import majed.eddin.marvelcharacters.ui.view.fragments.SearchCharacterIndexFragment
 import majed.eddin.marvelcharacters.ui.viewModel.CharactersIndexVM
+import majed.eddin.marvelcharacters.utils.extentionUtils.intentWithSlideInOut
 import majed.eddin.marvelcharacters.utils.extentionUtils.toGone
 import majed.eddin.marvelcharacters.utils.extentionUtils.toVisible
 import majed.eddin.marvelcharacters.utils.recyclerUtils.OnEndless
@@ -24,9 +26,11 @@ class CharactersIndexActivity : BaseBarActivity<CharactersIndexVM>(),
     private lateinit var binding: LayoutGlobalListBinding
 
     private lateinit var adapter: CharactersAdapter
-    private var apiResponse: ApiResponse<Data> = ApiResponse()
+    private var apiResponse: ApiResponse<CharactersData> = ApiResponse()
+
 
     override fun getViewModel(): Class<CharactersIndexVM> = CharactersIndexVM::class.java
+
 
     override fun viewModelInstance(viewModel: CharactersIndexVM?) {
         charactersIndexVM = viewModel!!
@@ -46,7 +50,7 @@ class CharactersIndexActivity : BaseBarActivity<CharactersIndexVM>(),
 
     override fun updateView() {
         binding.progressBar.toVisible()
-        apiResponse.model = Data()
+        apiResponse.model = CharactersData()
         apiResponse.model!!.results.clear()
         apiResponse.model!!.count = 1
 
@@ -76,7 +80,7 @@ class CharactersIndexActivity : BaseBarActivity<CharactersIndexVM>(),
     }
 
 
-    private fun charactersIndexResult(apiResponse: ApiResponse<Data>) {
+    private fun charactersIndexResult(apiResponse: ApiResponse<CharactersData>) {
         this.apiResponse = apiResponse
         getBaseFrame().isRefreshing = false
         handleApiResponse(apiResponse) { updateView() }
@@ -93,7 +97,7 @@ class CharactersIndexActivity : BaseBarActivity<CharactersIndexVM>(),
         } else {
             binding.recyclerGlobalList.toGone()
             binding.layoutEmptyState.toVisible()
-            apiResponse.listOfModel.clear()
+            apiResponse.model!!.results.clear()
             adapter.clear()
         }
         binding.progressBar.toGone()
@@ -112,16 +116,18 @@ class CharactersIndexActivity : BaseBarActivity<CharactersIndexVM>(),
 
 
     override fun onDefaultClicked(marvelCharacter: MarvelCharacter) {
-//        val bundle = Bundle()
-//        bundle.putParcelable(Params.CHARACTER, marvelCharacter)
-//        intentResultWithSlideInOut(
-//            CharacterDetailsActivity::class.java, bundle
-//        )
+        val bundle = Bundle()
+        bundle.putParcelable(CHARACTER, marvelCharacter)
+        intentWithSlideInOut(
+            CharacterDetailsActivity::class.java, bundle
+        )
     }
+
 
     override fun onClick(p0: View?) {
         if (p0!!.id == R.id.btn_search)
             loadSearch(SearchCharacterIndexFragment.getInstance())
     }
+
 
 }

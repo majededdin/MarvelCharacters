@@ -38,7 +38,7 @@ class LocaleHelper {
         }
 
 
-        // TODO: 2/4/21 deprecated...
+        @Suppress("DEPRECATION")
         private fun updateResourcesUp(context: Context, language: String): Context {
             val activityRes = context.resources
             val activityConf = activityRes.configuration

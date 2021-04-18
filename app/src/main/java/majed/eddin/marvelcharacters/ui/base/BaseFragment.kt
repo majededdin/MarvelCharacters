@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.ProgressBar
 import androidx.annotation.LayoutRes
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -15,23 +14,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import majed.eddin.marvelcharacters.R
 import majed.eddin.marvelcharacters.data.consts.AppConst
-import majed.eddin.marvelcharacters.data.model.modified.ErrorHandler
 import majed.eddin.marvelcharacters.data.remote.ApiResponse
 import majed.eddin.marvelcharacters.data.remote.ApiStatus
 import majed.eddin.marvelcharacters.ui.viewModel.BaseViewModel
-import majed.eddin.marvelcharacters.utils.extentionUtils.toGone
-import majed.eddin.marvelcharacters.utils.extentionUtils.toVisible
 
 abstract class BaseFragment<V : BaseViewModel> : Fragment() {
 
     private var viewModel: V? = null
     private lateinit var layout: FrameLayout
-    private lateinit var progressBar: ProgressBar
     lateinit var baseActivity: BaseActivity<*>
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
 
@@ -49,9 +41,6 @@ abstract class BaseFragment<V : BaseViewModel> : Fragment() {
     abstract fun updateView()
 
 
-    abstract fun setErrorHandler(handler: ErrorHandler)
-
-
     protected abstract fun viewInit()
 
 
@@ -62,7 +51,6 @@ abstract class BaseFragment<V : BaseViewModel> : Fragment() {
 
 
     private fun initViewModel(): V? {
-//        BaseViewModelFactory factory = new BaseViewModelFactory(getApplication());
         if (getViewModel() != null)
             viewModel = ViewModelProvider(this).get(getViewModel()!!)
         return viewModel
@@ -83,8 +71,6 @@ abstract class BaseFragment<V : BaseViewModel> : Fragment() {
     private fun baseInit() {
         baseActivity = activity as BaseActivity<*>
         swipeRefreshLayout = layout.findViewById(R.id.containerBaseFragment)
-        progressBar = layout.findViewById(R.id.progress_bar)
-        progressBar.toGone()
     }
 
 
@@ -109,8 +95,8 @@ abstract class BaseFragment<V : BaseViewModel> : Fragment() {
     protected fun getSwipeRefresh() = swipeRefreshLayout
 
 
-    protected fun setOnSwipeRefreshStatus(status: Boolean) {
-        swipeRefreshLayout.isEnabled = status
+    protected fun stopOnSwipeRefreshStatus() {
+        swipeRefreshLayout.isEnabled = false
     }
 
 
@@ -130,70 +116,30 @@ abstract class BaseFragment<V : BaseViewModel> : Fragment() {
         baseActivity.showMessage(message, callback)
 
 
-    fun setLoadingStatus(status: Boolean) {
-        showLoading(status)
-    }
-
-
-    private fun showLoading(status: Boolean) {
-        CoroutineScope(Dispatchers.Main).launch {
-            try {
-                showProgressBar(status)
-
-            } catch (ignored: IllegalStateException) {
-            }
-        }
-    }
-
-
-    private fun showProgressBar(status: Boolean) {
-        if (status)
-            progressBar.toVisible()
-        else
-            progressBar.toGone()
-    }
-
-
     open fun handleApiResponse(apiResponse: ApiResponse<*>, failureListener: View.OnClickListener) {
         when (apiResponse.apiStatus) {
 
             ApiStatus.OnBackEndError -> {
-                showProgressBar(false)
                 baseActivity.failureMessage(apiResponse.message, failureListener)
             }
 
-            ApiStatus.OnError -> {
-                showProgressBar(false)
-                if (apiResponse.errorBodyAsJSON != null)
-                    baseActivity.getResponseErrors(apiResponse.errorBodyAsJSON!!)
-                else
-                    showMessage(apiResponse.message)
-            }
+            ApiStatus.OnError ->
+                showMessage(apiResponse.message)
 
-            ApiStatus.OnFailure -> {
-                showProgressBar(false)
+            ApiStatus.OnFailure ->
                 Log.e("OnFailure ", apiResponse.message)
-            }
 
-            ApiStatus.OnForbidden -> {
-                showProgressBar(false)
+            ApiStatus.OnForbidden ->
                 Log.e("OnForbidden ", apiResponse.message)
-            }
 
-            ApiStatus.OnHttpException -> {
-                showProgressBar(false)
+            ApiStatus.OnHttpException ->
                 showMessage(apiResponse.message)
-            }
 
-            ApiStatus.OnLoading -> showProgressBar(true)
-
-            ApiStatus.OnNotFound -> {
-                showProgressBar(false)
+            ApiStatus.OnNotFound ->
                 showMessage(apiResponse.message)
-            }
+
 
             ApiStatus.OnTimeoutException -> {
-                showProgressBar(false)
                 Snackbar.make(
                     getCustomView(),
                     getString(R.string.request_timeout_please_check_your_connection),
@@ -202,11 +148,8 @@ abstract class BaseFragment<V : BaseViewModel> : Fragment() {
             }
 
             ApiStatus.OnUnknownHost, ApiStatus.OnConnectException -> {
-                showProgressBar(false)
                 baseActivity.onNetworkConnectionChanged(NetworkConnectivity.NetworkStatus.OnLost)
             }
-
-            ApiStatus.OnSuccess -> showProgressBar(false)
 
             else -> {
             }

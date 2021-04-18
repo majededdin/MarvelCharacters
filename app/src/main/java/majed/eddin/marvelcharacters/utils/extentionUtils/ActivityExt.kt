@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
+import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.fragment.app.Fragment
@@ -34,6 +35,19 @@ fun Activity.intentWithSlideInOutFinishAll(aClass: Class<*>) {
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left)
 }
 
+// ------------------------------------------- Activity Bundle Slide InOut -------------------------
+
+fun Activity.intentWithSlideInOut(aClass: Class<*>, bundle: Bundle) =
+    intentWithSlideInOut(aClass, bundle, false)
+
+fun Activity.intentWithSlideInOut(aClass: Class<*>, bundle: Bundle, finish: Boolean) {
+    startActivity(Intent(this, aClass).putExtras(bundle))
+    if (finish) finish()
+    if (AppConst.instance.deviceCurrentLanguage == "ar")
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right)
+    else
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_left)
+}
 
 // ------------------------------------------- Fragment Slide UpDown -------------------------------
 

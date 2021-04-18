@@ -5,7 +5,15 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Comics(
-    var available: Int,
-    var collectionURI: String,
-    var returned: Int
-) : Parcelable
+    var available: Int?,
+    var collectionURI: String?,
+    var returned: Int?,
+    var title: String?,
+    var thumbnail: Thumb?,
+    var items: ArrayList<ComicSummery?>?
+) : Parcelable {
+
+    fun getFullImagePath(): String? =
+        if (thumbnail != null) thumbnail!!.path.plus(".".plus(thumbnail!!.extension)) else null
+
+}

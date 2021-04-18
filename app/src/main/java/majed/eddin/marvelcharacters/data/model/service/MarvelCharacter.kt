@@ -17,6 +17,8 @@ data class MarvelCharacter(
     var events: Comics
 ) : Parcelable {
 
+    fun getFullImagePath(): String = thumbnail.path.plus(".".plus(thumbnail.extension))
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false

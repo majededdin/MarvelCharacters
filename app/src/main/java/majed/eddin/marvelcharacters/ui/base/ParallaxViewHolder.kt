@@ -4,14 +4,14 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import majed.eddin.marvelcharacters.utils.imageUtils.ParallaxImageView
 
-abstract class ParallaxViewHolder : RecyclerView.ViewHolder,
+abstract class ParallaxViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
     ParallaxImageView.ParallaxImageListener {
 
     private var backgroundImage: ParallaxImageView
 
     abstract fun getParallaxImageId(): Int
 
-    constructor(itemView: View) : super(itemView) {
+    init {
         backgroundImage = itemView.findViewById(getParallaxImageId()) as ParallaxImageView
         backgroundImage.setListener(this)
     }

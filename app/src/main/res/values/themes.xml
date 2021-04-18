@@ -56,7 +56,7 @@
         <item name="expandedTitleMarginStart">@dimen/dimen_16</item>
         <item name="layout_collapseMode">parallax</item>
         <item name="layout_scrollFlags">scroll|exitUntilCollapsed</item>
-        <item name="contentScrim">@color/colorPrimary</item>
+        <item name="contentScrim">@color/colorBackToolBar</item>
 
     </style>
 
@@ -76,50 +76,19 @@
     </style>
 
 
-    <style name="TextView.BoxHeader" parent="TextView">
-        <item name="android:textSize">12sp</item>
-        <item name="android:layout_gravity">start</item>
-        <item name="android:layout_marginStart">@dimen/dimen_24</item>
-
-    </style>
-
-
-    <style name="TextView.Colored" parent="TextView">
+    <style name="TextView.Paragraph.Colored" parent="TextView">
+        <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/colorTextHeader</item>
 
     </style>
 
 
-    <style name="TextView.Paragraph" parent="TextView">
-        <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/colorTextParagraph</item>
-
-    </style>
-
-
-    <style name="TextView.Paragraph.Colored" parent="TextView.Paragraph">
+    <style name="TextView.Header" parent="TextView">
         <item name="android:textColor">@color/colorTextHeader</item>
-
-    </style>
-
-
-    <style name="TextView.Header" parent="TextView.Colored">
-        <item name="android:textSize">16sp</item>
-
-    </style>
-
-
-    <style name="TextView.Header.Bold" parent="TextView.Paragraph.Colored">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textStyle">bold</item>
-
-    </style>
-
-
-    <style name="TextView.Header.Bold.ExtraSize" parent="TextView.Header.Bold">
         <item name="android:textSize">18sp</item>
 
     </style>
+
 
     <style name="TextView.Clickable" parent="TextView.Header">
         <item name="android:paddingStart">@dimen/dimen_16</item>
@@ -128,7 +97,7 @@
         <item name="android:paddingBottom">@dimen/dimen_8</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
-        <item name="android:textColor">@color/colorTextParagraph</item>
+        <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:background">?attr/selectableItemBackground</item>
 
     </style>
@@ -144,35 +113,6 @@
 
 
     // ----------------------------------------- EditText ------------------------------------------
-
-    <style name="InputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/dimen_16</item>
-        <item name="android:layout_marginEnd">@dimen/dimen_16</item>
-        <item name="android:layout_marginTop">@dimen/dimen_8</item>
-        <item name="android:layout_marginBottom">@dimen/dimen_8</item>
-        <item name="errorTextAppearance">@style/InputLayout_ErrorAppearance</item>
-        <item name="hintTextAppearance">@style/InputLayout_HintAppearance</item>
-        <item name="boxBackgroundMode">outline</item>
-        <item name="boxStrokeColor">@color/colorTextDefault</item>
-        <item name="boxCornerRadiusTopStart">@dimen/appComponentRadius</item>
-        <item name="boxCornerRadiusTopEnd">@dimen/appComponentRadius</item>
-        <item name="boxCornerRadiusBottomStart">@dimen/appComponentRadius</item>
-        <item name="boxCornerRadiusBottomEnd">@dimen/appComponentRadius</item>
-
-    </style>
-
-    <style name="InputLayout_HintAppearance" parent="@android:style/TextAppearance">
-        <item name="android:textSize">12sp</item>
-    </style>
-
-
-    <style name="InputLayout_ErrorAppearance" parent="@android:style/TextAppearance">
-        <item name="android:textColor">@android:color/holo_red_dark</item>
-        <item name="android:layout_marginTop">2dp</item>
-        <item name="android:textSize">12sp</item>
-    </style>
 
 
     <style name="EditText" parent="Widget.AppCompat.EditText">

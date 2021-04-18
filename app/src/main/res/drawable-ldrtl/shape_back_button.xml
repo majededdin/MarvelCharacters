@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="rectangle">
+            <corners
+                android:topLeftRadius="@dimen/appComponentRadius"
+                android:bottomLeftRadius="@dimen/appComponentRadius" />
+
+            <solid android:color="@color/colorBackToolBarLowOpacity" />
+        </shape>
+    </item>
+
+    <item
+        android:id="@android:id/background"
+        android:drawable="@drawable/ic_arrow_back"
+        android:gravity="center|end"
+        android:left="@dimen/dimen_16"
+        android:right="@dimen/dimen_16"
+        android:top="@dimen/dimen_8"
+        android:bottom="@dimen/dimen_8"  />
+
+</layer-list>
