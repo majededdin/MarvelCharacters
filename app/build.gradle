@@ -132,10 +132,8 @@ dependencies {
     // am-leon
     implementation 'com.github.am-Leon:network-connectivity:v1.0.0'         // NetworkConnectivity
     implementation 'com.github.am-Leon:LeonImageView:v1.1.4'                // LeonImageView
-    implementation 'com.github.am-Leon:DateUtils:1.0.7'                     // DateUtils
 
     // Custom Libraries
     implementation 'com.squareup.picasso:picasso:2.71828'                   // Picasso
-    implementation 'com.airbnb.android:lottie:3.5.0'                        // Lottie Animations
 
 }

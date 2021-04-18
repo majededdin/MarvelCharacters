@@ -24,3 +24,5 @@ Built using kotlin with MVVM and kotlin Coroutine , flow with clean code .
     * create collapse toolbar for header image to give the ability stretch.
     * all items for Comics, series, stories and events is clickable to open full screen and zooming 
       using my library (leonImageView).
+      
+Note: some of libraries that used in this project is built by me.(LeonImageView , LeonNetworkConnectivity)
