@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:background="@color/colorBack">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimen_16"
+        android:orientation="vertical">
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_characterName"
+            style="@style/TextView.Title"
+            android:textSize="24sp"
+            android:layout_gravity="start"
+            tools:text="@tools:sample/first_names" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/TextView.Header"
+            android:layout_gravity="start"
+            android:layout_margin="@dimen/dimen_8"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/description" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_description"
+            style="@style/TextView.Paragraph.Colored"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/dimen_8"
+            android:layout_marginEnd="@dimen/dimen_8"
+            android:layout_marginBottom="@dimen/dimen_16"
+            tools:text="@string/description" />
+
+
+        <LinearLayout
+            android:id="@+id/layout_comics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextView.Header"
+                android:layout_gravity="start"
+                android:layout_margin="@dimen/dimen_8"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/comics" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_comics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_events"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextView.Header"
+                android:layout_gravity="start"
+                android:layout_margin="@dimen/dimen_8"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/events" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_events"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_series"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextView.Header"
+                android:layout_gravity="start"
+                android:layout_margin="@dimen/dimen_8"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/series" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_series"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_stories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextView.Header"
+                android:layout_gravity="start"
+                android:layout_margin="@dimen/dimen_8"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/stories" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_stories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

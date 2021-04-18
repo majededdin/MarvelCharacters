@@ -14,6 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BaseApp">
+        <activity android:name=".ui.view.activities.CharacterDetailsActivity" />
         <activity android:name=".ui.view.activities.CharactersIndexActivity" />
         <activity android:name=".ui.view.activities.SplashActivity">
             <intent-filter>
